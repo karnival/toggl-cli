@@ -364,6 +364,8 @@ class ClientList(object):
             self.iter_index += 1
             return self.client_list[self.iter_index-1]
 
+    __next__ = next # python 3 support
+
     def __str__(self):
         """
         Formats the list of clients as a string.
@@ -417,7 +419,7 @@ class WorkspaceList(six.Iterator):
         self.iter_index = 0
         return self
 
-    def __next__(self):
+    def next(self):
         """
         Returns the next workspace.
         """
@@ -426,6 +428,8 @@ class WorkspaceList(six.Iterator):
         else:
             self.iter_index += 1
             return self.workspace_list[self.iter_index-1]
+
+    __next__ = next # python 3 support
 
     def __str__(self):
         """Formats the project list as a string."""
@@ -492,7 +496,7 @@ class ProjectList(six.Iterator):
         self.iter_index = 0
         return self
 
-    def __next__(self):
+    def next(self):
         """
         Returns the next project.
         """
@@ -501,6 +505,8 @@ class ProjectList(six.Iterator):
         else:
             self.iter_index += 1
             return self.project_list[self.iter_index-1]
+
+    __next__ = next # python 3 support
 
     def __str__(self):
         """Formats the project list as a string."""
@@ -826,6 +832,8 @@ class TimeEntryList(object):
         else:
             self.iter_index += 1
             return self.time_entries[self.iter_index-1]
+
+    __next__ = next # python 3 support
     
     def now(self):
         """
