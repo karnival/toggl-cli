@@ -127,7 +127,7 @@ class Config(object):
         given key within the given section of the configuration file. Raises
         ConfigParser exceptions if the section or key are invalid.
         """
-        return self.cfg.get(section, key).strip()
+        return self.cfg.get(section, key, raw=True).strip()
 
     def get_auth(self):
         if self.get('options', 'prefer_token').lower() == 'true':
